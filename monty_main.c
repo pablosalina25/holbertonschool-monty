@@ -1,25 +1,35 @@
 #include "monty.h"
-#include <stdio.h>
-#include <stdlib.h>
 
-typedef struct
+int main(int argc, char *argv[])
+/**
+ * main - entry point
+ * @argc: Number of command-line arguments.
+ * @argv: Array of strings containing the command-line arguments.
+ *
+ * Return: Returns 0 if the execution is successful.
+ */
 {
-}
-	stack_t;
+	FILE *file;
+	char *line = NULL;
+	size_t line_length = 0;
+	stack_t *stack = NULL;
+	int line_number = 0;
 
-int main(int numero_argumentos, char *argumentos[])
-{
-	FILE *archivo;
-	char *linea = NULL;
-	size_t longitud_linea = 0;
-	stack_t *pila = NULL;
-	int numero_linea = 0;
-
-	if (numero_argumentos != 2)
+	if (argc != 2)
 	{
-	fprintf(stderr, "Uso: programa archivo\n");
+	fprintf(stderr, "Usage: monty file\n");
 	exit(EXIT_FAILURE);
 	}
-	
-	return (0);
+	file = fopen(argv[1], "r");
+	if (!file)
+	{
+	fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
+	exit(EXIT_FAILURE);
+	}
+	for (line_number = 1; getline(&line, &line_length, file) != -1; line_number++)
+	{
+	}
+	free(line);
+	fclose(file);
+	return (EXIT_SUCCESS);
 }
