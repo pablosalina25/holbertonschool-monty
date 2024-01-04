@@ -3,31 +3,24 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
-/**
- * struct stack_s - Structure of a stack node
- * @n: Integer data
- * @next: Pointer to the next node in the stack
- */
+/* Estructura de un nodo de la pila */
 typedef struct stack_s
 {
     int n;
+    struct stack_s *prev;
     struct stack_s *next;
 } stack_t;
 
-/**
- * push - Pushes an element onto the stack
- * @stack: Pointer to the stack
- * @line_number: Line number in Monty file
- */
-void push(stack_t **stack, int line_number);
+/* Estructura de una instrucción Monty */
+typedef struct instruction_s
+{
+    char *opcode;
+    void (*f)(stack_t **stack, unsigned int line_number);
+} instruction_t;
 
-/**
- * pall - Prints all the elements of the stack
- * @stack: Pointer to the stack
- * @line_number: Line number in Monty file
- */
-void pall(stack_t **stack, int line_number);
+/* Funciones del intérprete Monty */
+void push(stack_t **stack, int value);
+void pall(stack_t **stack);
 
 #endif /* MONTY_H */
