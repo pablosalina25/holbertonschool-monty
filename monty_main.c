@@ -1,35 +1,35 @@
 #include "monty.h"
 
-int main(int argc, char *argv[])
 /**
- * main - entry point
- * @argc: Number of command-line arguments.
- * @argv: Array of strings containing the command-line arguments.
+ * main - Entry point for the Monty interpreter
+ * @argc: Argument count
+ * @argv: Argument vector
  *
- * Return: Returns 0 if the execution is successful.
+ * Return: EXIT_SUCCESS on success, EXIT_FAILURE on failure
  */
+int main(int argc, char *argv[])
 {
-	FILE *file;
-	char *line = NULL;
-	size_t line_length = 0;
-	stack_t *stack = NULL;
+	FILE *monty_file;
+	char *line_buffer = NULL;
+	size_t buffer_size = 0;
+	stack_t *monty_stack = NULL;
 	int line_number = 0;
 
 	if (argc != 2)
 	{
-	fprintf(stderr, "Usage: monty file\n");
+	fprintf(stderr, "USAGE: monty file\n");
 	exit(EXIT_FAILURE);
 	}
-	file = fopen(argv[1], "r");
-	if (!file)
+	monty_file = fopen(argv[1], "r");
+	if (!monty_file)
 	{
 	fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 	exit(EXIT_FAILURE);
 	}
-	for (line_number = 1; getline(&line, &line_length, file) != -1; line_number++)
+	for (; getline(&line_buffer, &buffer_size, monty_file) != -1; line_number++)
 	{
 	}
-	free(line);
-	fclose(file);
+	free(line_buffer);
+	fclose(monty_file);
 	return (EXIT_SUCCESS);
 }
