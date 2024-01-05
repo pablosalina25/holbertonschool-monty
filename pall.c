@@ -1,16 +1,22 @@
 #include "monty.h"
 
 /**
- * pall - Prints all the values on the stack
- * @stack: Puntero a la pila
- */
-void pall(stack_t **stack)
+ * pall - print all the values of the stack
+ * @stack: double pointer to the stack
+ * @n: data to print
+ * Return: nothing
+ **/
+
+void pall(stack_t **stack, unsigned int n)
 {
-	stack_t *current = *stack;
+	stack_t *current = NULL;
+	(void)n;
+
+	current = *stack;
 
 	while (current != NULL)
 	{
-	printf("%d\n", current->n);
-	current = current->next;
+		dprintf(STDOUT_FILENO, "%d\n", current->n);
+		current = current->next;
 	}
 }
