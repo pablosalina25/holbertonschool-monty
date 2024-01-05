@@ -22,5 +22,7 @@ typedef struct instruction_s
 /* Funciones del intérprete Monty */
 void push(stack_t **stack, int value);
 void pall(stack_t **stack);
+void swap_top_elements(stack_t **stack_head, unsigned int cont);
+void addTopTwoElements(stack_t **stackHead, unsigned int cont);
 
 #endif /* MONTY_H */
