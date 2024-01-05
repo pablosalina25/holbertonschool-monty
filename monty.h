@@ -20,9 +20,9 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Funciones del intérprete Monty */
-void push(stack_t **stack, unsigned int line_number)
-void pall(stack_t **stack, unsigned int n)
-void swapTopElements(stack_t **stackHead, unsigned int lineNumber)
+void push(stack_t **stack, unsigned int line_number);
+void pall(stack_t **stack, unsigned int n);
+void swapTopElements(stack_t **stackHead, unsigned int lineNumber);
 void addTopTwoElements(stack_t **stackHead, unsigned int cont);
 
 #endif /* MONTY_H */
