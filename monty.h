@@ -19,6 +19,13 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+typedef struct {
+    FILE *file;
+    char *content;
+} cmd_t;
+
+extern cmd_t cmd;
+
 /* Funciones del intérprete Monty */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int n);
