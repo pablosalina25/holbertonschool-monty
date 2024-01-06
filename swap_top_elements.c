@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * swapTopElements - Swaps the top two elements of the stack.
  * @stackHead: Pointer to the head of the stack
@@ -22,7 +23,7 @@ void swapTopElements(stack_t **stackHead, unsigned int lineNumber)
         fprintf(stderr, "L%d: cannot swap, stack too short\n", lineNumber);
         fclose(cmd.file); 
         free(cmd.content);
-        freeStack(*stackHead);
+        freeStack(stackHead);  // Corregir aquí, pasar stackHead directamente
         exit(EXIT_FAILURE);
     }
 

@@ -1,3 +1,5 @@
+// monty.h
+
 #ifndef MONTY_H
 #define MONTY_H
 
@@ -17,12 +19,15 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-typedef struct {
+typedef struct
+{
     FILE *file;
     char *content;
 } cmd_t;
 
-void freestack(stack_t **stack);
+extern cmd_t cmd;
+
+void freeStack(stack_t **stack);  // Declaración de freeStack
 
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int n);
