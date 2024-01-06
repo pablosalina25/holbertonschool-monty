@@ -7,18 +7,18 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-    stack_t *new = NULL;
-    int value = 0;
-    (void)line_number;
+	stack_t *new = NULL;
+	int value = 0;
+	(void)line_number;
 
-    value = 42;
+	value = 42;
 
-    stack_t *new_Node(int value);
+	stack_t *new_Node(int value);
 
-    new = new_Node(value);
+	new = new_Node(value);
 
-    new->next = *stack;
-    if (*stack != NULL)
-        (*stack)->prev = new;
-    *stack = new;
+	new->next = *stack;
+	if (*stack != NULL)
+	(*stack)->prev = new;
+	*stack = new;
 }
