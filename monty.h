@@ -4,7 +4,6 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-/* Estructura de un nodo de la pila */
 typedef struct stack_s
 {
     int n;
@@ -12,7 +11,6 @@ typedef struct stack_s
     struct stack_s *next;
 } stack_t;
 
-/* Estructura de una instrucción Monty */
 typedef struct instruction_s
 {
     char *opcode;
@@ -24,9 +22,8 @@ typedef struct {
     char *content;
 } cmd_t;
 
-extern cmd_t cmd;
+void freestack(stack_t **stack);
 
-/* Funciones del intérprete Monty */
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int n);
 void swapTopElements(stack_t **stackHead, unsigned int lineNumber);
