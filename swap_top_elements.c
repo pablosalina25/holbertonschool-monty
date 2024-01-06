@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * swapTopElements - Swaps the top two elements of the stack.
  * @stackHead: Pointer to the head of the stack
