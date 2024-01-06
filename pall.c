@@ -1,5 +1,5 @@
 #include "monty.h"
-
+#include <unistd.h>
 /**
  * pall - print all the values of the stack
  * @stack: double pointer to the stack

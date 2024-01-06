@@ -1,4 +1,5 @@
 #include "monty.h"
+
 /**
  * push - creates a new node at the beginning of stack
  * @stack: double pointer to the stack
@@ -6,13 +7,18 @@
  */
 void push(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new = NULL;
-	(void)line_number;
+    stack_t *new = NULL;
+    int value = 0;
+    (void)line_number;
 
-	new = new_Node(value);
+    value = 42;
 
-	new->next = *stack;
-	if (*stack != NULL)
-		(*stack)->prev = new;
-	*stack = new;
+    stack_t *new_Node(int value);
+
+    new = new_Node(value);
+
+    new->next = *stack;
+    if (*stack != NULL)
+        (*stack)->prev = new;
+    *stack = new;
 }

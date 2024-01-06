@@ -23,7 +23,7 @@ void addTopTwoElements(stack_t **stackHead, unsigned int lineNumber)
 	fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
 	fclose(cmd.file);
 	free(cmd.content);
-	free_stack(*stackHead);
+	free_Stack(*stackHead);
 	exit(EXIT_FAILURE);
 	}
 	
