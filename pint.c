@@ -16,5 +16,5 @@ void _pint(stack_t **stack, unsigned int line_number)
 	}
 
 	stack_t *top = *stack;
-	printf("%d\n", top->n);
+printf("%d\n", top->n);
 }
