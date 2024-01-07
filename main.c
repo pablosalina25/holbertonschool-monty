@@ -1,5 +1,4 @@
-#include "monty.h"
-
+ #include "monty.h"
 /**
  * main - Entry point for the Monty interpreter.
  * @argc: Number of command-line arguments.
@@ -9,7 +8,7 @@
 int main(int argc, char *argv[])
 {
 	cmd_t cmd;
-	stack_t *stack = NULL;
+	/*stack_t *stack = NULL;*/
 
 	if (argc != 2)
 	{
