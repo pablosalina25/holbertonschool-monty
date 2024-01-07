@@ -30,7 +30,10 @@ void freeStack(stack_t **stack);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int n);
 void swapTopElements(stack_t **stackHead, unsigned int lineNumber);
-void addTopTwoElements(stack_t **stackHead, unsigned int cont);
+void addTopTwoElements(stack_t **stackHead, unsigned int lineNumber);
 void printTopElement(stack_t **stackHead, unsigned int lineNumber);
 void nop(stack_t **stack, unsigned int line_number);
+
+stack_t *new_Node(int value);
+
 #endif
