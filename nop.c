@@ -1,15 +1,14 @@
 #include "monty.h"
 
 /**
- * nop - Doesn't perform any operation.
- * @stack: Pointer to the stack.
- * @line_number: Line number.
- *
- * Return: None.
+ * nop - doesn’t do anything.
+ * @stack: double pointer to head of stack
+ * @line_number: line number of current operation
+ * @data: pointer to void data
  */
-void nop(stack_t **stack, unsigned int line_number)
+void nop(stack_t **stack, unsigned int line_number, void *data)
 {
-	if (*stack == NULL)
-	return;
+	(void)stack;
 	(void)line_number;
+	(void)data;
 }
