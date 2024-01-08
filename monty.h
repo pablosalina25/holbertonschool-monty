@@ -31,7 +31,6 @@ void swapTopElements(stack_t **stackHead, unsigned int lineNumber);
 void addTopTwoElements(stack_t **stackHead, unsigned int lineNumber);
 void printTopElement(stack_t **stackHead, unsigned int lineNumber);
 void pop(stack_t **stack, unsigned int line_number);
-int is_integer(const char *str);
 stack_t *new_Node(int value);
 
 #endif
