@@ -1,9 +1,11 @@
 #ifndef MONTY_H
 #define MONTY_H
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <ctype.h>
+
 typedef struct stack_s
 {
     int n;
@@ -35,4 +37,6 @@ void nop(stack_t **stack, unsigned int line_number);
 int is_integer(const char *str);
 stack_t *new_Node(int value);
 void push(stack_t **stack);
+
 #endif
+
