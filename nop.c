@@ -1,18 +1,14 @@
-#include "monty.h"
+nclude "monty.h"
 
 /**
  * nop - doesn’t do anything.
  * @stack: double pointer to head of stack
  * @line_number: line number of current operation
+ * @data: pointer to void data
  */
-void nop(stack_t **stack, unsigned int line_number)
+void nop(stack_t **stack, unsigned int line_number, void *data)
 {
-	if (stack != NULL && *stack != NULL)
-	{
-	}
-	else
-	{
-	fprintf(stderr, "L%u: Error - Stack is empty\n", line_number);
-	exit(EXIT_FAILURE);
-	}
+	(void)stack;
+	(void)line_number;
+	(void)data;
 }
