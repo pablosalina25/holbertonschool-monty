@@ -37,10 +37,6 @@ void nop(stack_t **stack, unsigned int line_number);
 int is_integer(const char *str);
 stack_t *new_Node(int value);
 void push(stack_t **stack, unsigned int line_number);
-<<<<<<< HEAD
-
-=======
 void _pint(stack_t **stack, unsigned int line_number);
->>>>>>> e3216cdc805eeb7920e0fe8ac531214fef184d6b
 #endif
 
