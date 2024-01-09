@@ -1,44 +1,36 @@
 #include "monty.h"
-#include <stdio.h>
-
+#include <unistd.h>
 /**
- * free_stack - frees the memory allocated for the stack
+ * pall - print all the values of the stack
  * @stack: double pointer to the stack
- */
-void free_stack(stack_t **stack)
-{
-    stack_t *current = *stack;
-
-    while (current != NULL)
-    {
-        stack_t *temp = current;
-        current = current->next;
-        free(temp);
-    }
-
-    *stack = NULL;
-}
-
+ * @n: data to print
+ * Return: nothing
+ **/
+void pall(stack_t **stack, unsigned int n)
 /**
  * pall - Print all the values of the stack.
  * @stack: Double pointer to the stack.
  * @line_number: Line number of the command (unused).
  * Return: Nothing.
  */
+    
 void pall(stack_t **stack, unsigned int line_number)
 {
-    stack_t *current = *stack;
+	stack_t *current = NULL;
+	(void)n;
+	stack_t *current = *stack;
 
-    (void)line_number;
+	(void)line_number;
 
-    if (current == NULL)
-        return;
+	current = *stack;
+	if (current == NULL)
+	return;
 
-    while (current != NULL)
-    {
-        printf("%d\n", current->n);
-        current = current->next;
-    }
-
-    free_stack(stack);
+	while (current != NULL)
+	{
+		dprintf(STDOUT_FILENO, "%d\n", current->n);
+		current = current->next;
+	printf("%d\n", current->n);
+	current = current->next;
+	}
 }
