@@ -36,6 +36,15 @@ void push(stack_t **stack)
 }
 
 /**
+ * free_node - frees the memory allocated for a single node
+ * @node: pointer to the node to be freed
+ */
+void free_node(stack_t *node)
+{
+    free(node);
+}
+
+/**
  * free_stack - frees the memory allocated for the stack
  * @stack: double pointer to the stack
  */
@@ -47,7 +56,7 @@ void free_stack(stack_t **stack)
     {
         stack_t *temp = current;
         current = current->next;
-        free(temp);
+        free_node(temp);  // Usa la función para liberar un solo nodo
     }
 
     *stack = NULL;
