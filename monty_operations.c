@@ -1,47 +1,21 @@
 #include "monty.h"
 
-cmd_t cmd;
-
 /**
- * free_stack - Frees all nodes in the stack.
- * @stack: Double pointer to the head of the stack.
+ * _add - Adds the top two elements of the stack.
+ * @stack: Pointer to the top of the stack
+ * @line_number: Line number of the current operation
+ * Return: 0 on success
  */
-void free_stack(stack_t **stack)
+int _add(stack_t **stack, unsigned int line_number)
 {
-    if (stack == NULL || *stack == NULL)
-        return;
-
-    stack_t *current = *stack;
-    stack_t *next;
-
-    while (current != NULL)
+    if (*stack == NULL || (*stack)->next == NULL)
     {
-        next = current->next;
-        free(current);
-        current = next;
-    }
-
-    *stack = NULL;
-}
-
-/**
- * create_node - Creates a new node with the given value.
- * @value: Value to be stored in the new node.
- * Return: Pointer to the newly created node.
- */
-stack_t *create_node(int value)
-{
-    stack_t *new_node = malloc(sizeof(stack_t));
-
-    if (new_node == NULL)
-    {
-        fprintf(stderr, "Error: malloc failed\n");
+        fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
         exit(EXIT_FAILURE);
     }
 
-    new_node->n = value;
-    new_node->prev = NULL;
-    new_node->next = NULL;
-
-    return new_node;
+    int sum = (*stack)->n + (*stack)->next->n;
+    (*stack)->next->n = sum;
+    _pop(stack, line_number);
+    return (0);
 }
