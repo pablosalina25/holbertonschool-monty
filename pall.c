@@ -2,19 +2,26 @@
 #include <unistd.h>
 
 /**
- * pall - Print all the values of the stack.
- * @stack: Double pointer to the stack.
- * @n: Unused parameter.
- * Return: Nothing.
+ * print_all - Implements the pall opcode.
+ * @stack: Pointer to a stack node pointer
+ * @line_number: Current line number
+ * Return: 0 on success
  */
-void pall(stack_t **stack, unsigned int n)
+int print_all(stack_t **stack, unsigned int line_number)
 {
-	stack_t *current = *stack;
-	(void)n;
+	stack_t *element = *stack;
 
-	while (current != NULL)
+	(void)line_number;
+	if (!element)
+		return (0);
+
+	while (element)
 	{
-	dprintf(STDOUT_FILENO, "%d\n", current->n);
-	current = current->next;
+		if (element->n)
+			printf("%u\n", element->n);
+		else
+			printf("%u\n", 0);
+		element = element->next;
 	}
+	return (0);
 }

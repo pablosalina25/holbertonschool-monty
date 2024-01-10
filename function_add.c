@@ -1,36 +1,21 @@
 #include "monty.h"
 
 /**
- * addTopTwoElements - Adds the top two elements of the stack.
- * @stackHead: Pointer to the head of the stack
- * @lineNumber: Line number for error handling
- * Return: No return value
+ * add_elements - Adds the top two elements of the stack.
+ * @stack: Pointer to the top of the stack
+ * @line_number: Line number of the current operation
+ * Return: 0 on success
  */
-void addTopTwoElements(stack_t **stackHead, unsigned int lineNumber)
+int _add(stack_t **stack, unsigned int line_number)
 {
-	stack_t *currentNode = *stackHead;
+    if (*stack == NULL || (*stack)->next == NULL)
+    {
+        fprintf(stderr, "L%d: can't add, stack too short\n", line_number);
+        exit(EXIT_FAILURE);
+    }
 
-	int stackLength = 0;
-	int sum;
-
-	while (currentNode != NULL)
-	{
-	stackLength++;
-	currentNode = currentNode->next;
-	}
-
-	if (stackLength < 2)
-	{
-	fprintf(stderr, "L%d: can't add, stack too short\n", lineNumber);
-	fclose(cmd.file);
-	free(cmd.content);
-	freeStack(stackHead);
-	exit(EXIT_FAILURE);
-	}
-	currentNode = *stackHead;
-	sum = currentNode->n + currentNode->next->n;
-	currentNode->next->n = sum;
-	*stackHead = currentNode->next;
-
-	free(currentNode);
+    int sum = (*stack)->n + (*stack)->next->n;
+    (*stack)->next->n = sum;
+    _pop(stack, line_number);
+    return (0);
 }

@@ -1,37 +1,46 @@
 #include "monty.h"
-#include <stdlib.h>
-
 /**
- * push - creates a new node at the beginning of stack
- * @stack: double pointer to the stack
- * @line_number: line number of the command
+ * push_element - Implements the push opcode.
+ * @stack: Pointer to a stack node pointer
+ * @line_number: Current line number
+ * Return: 0 on success
  */
-void push(stack_t **stack, unsigned int line_number)
+int push_element(stack_t **stack, unsigned int line_number)
 {
-	stack_t *new = NULL;
-	int value = 0;
+	char *argument = NULL;
+	unsigned int value = 0;
+	int i = 0;
+	stack_t *new_node = NULL;
 
-	if (cmd.content == NULL)
+	argument = strtok(NULL, " \t\n");
+	if (argument == NULL)
 	{
-	fprintf(stderr, "Error: Can't push without a value\n");
-	exit(EXIT_FAILURE);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
+		exit(EXIT_FAILURE);
 	}
 
-	value = atoi(cmd.content);
+	for (; argument[i] != '\0'; i++)
+		if (!isdigit(argument[i]) && argument[i] != '-')
+		{
+			fprintf(stderr, "L%u: usage: push integer\n", line_number);
+			exit(EXIT_FAILURE);
+		}
 
-	new = malloc(sizeof(stack_t));
-	if (new == NULL)
+	value = atoi(argument);
+	new_node = malloc(sizeof(stack_t));
+	if (!new_node)
 	{
-	fprintf(stderr, "Error: malloc failed\n");
-	exit(EXIT_FAILURE);
+		fprintf(stderr, "Error malloc failed\n");
+		exit(EXIT_FAILURE);
 	}
 
-	new->n = value;
-	new->prev = NULL;
-	new->next = *stack;
+	new_node->n = value;
+	new_node->prev = NULL;
+	new_node->next = *stack;
 
 	if (*stack != NULL)
-	(*stack)->prev = new;
+		(*stack)->prev = new_node;
 
-	*stack = new;
+	*stack = new_node;
+	return (0);
 }
