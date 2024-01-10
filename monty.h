@@ -36,6 +36,19 @@ typedef struct instruction_s
     void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
+/**
+ * struct cmd_s - Command data structure
+ * @file: File pointer
+ * @line_number: Line number
+ *
+ * Description: Structure to hold command-related data.
+ */
+typedef struct cmd_s
+{
+    FILE *file;
+    unsigned int line_number;
+} cmd_t;
+
 int _isdigit(int c);
 void freedom(stack_t *stack, char *buffer);
 int _push(stack_t **stack, unsigned int line_number);

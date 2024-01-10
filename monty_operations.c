@@ -1,45 +1,47 @@
 #include "monty.h"
 
 cmd_t cmd;
+
 /**
- * freeStack - Frees all nodes in the stack.
+ * free_stack - Frees all nodes in the stack.
  * @stack: Double pointer to the head of the stack.
  */
-void freeStack(stack_t **stack)
+void free_stack(stack_t **stack)
 {
-	if (stack == NULL || *stack == NULL)
-	return;
+    if (stack == NULL || *stack == NULL)
+        return;
 
-	stack_t *current = *stack;
-	stack_t *next;
+    stack_t *current = *stack;
+    stack_t *next;
 
-	while (current != NULL)
-	{
-	next = current->next;
-	free(current);
-	current = next;
-	}
+    while (current != NULL)
+    {
+        next = current->next;
+        free(current);
+        current = next;
+    }
 
-	*stack = NULL;
+    *stack = NULL;
 }
+
 /**
- * new_Node - Creates a new node with the given value.
+ * create_node - Creates a new node with the given value.
  * @value: Value to be stored in the new node.
  * Return: Pointer to the newly created node.
  */
-stack_t *new_Node(int value)
+stack_t *create_node(int value)
 {
-	stack_t *new = malloc(sizeof(stack_t));
+    stack_t *new_node = malloc(sizeof(stack_t));
 
-	if (new == NULL)
-	{
-	fprintf(stderr, "Error: malloc failed\n");
-	exit(EXIT_FAILURE);
-	}
+    if (new_node == NULL)
+    {
+        fprintf(stderr, "Error: malloc failed\n");
+        exit(EXIT_FAILURE);
+    }
 
-	new->n = value;
-	new->prev = NULL;
-	new->next = NULL;
+    new_node->n = value;
+    new_node->prev = NULL;
+    new_node->next = NULL;
 
-	return (new);
+    return new_node;
 }
