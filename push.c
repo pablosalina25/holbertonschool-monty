@@ -17,7 +17,14 @@ int push(stack_t **stack, unsigned int line_number)
 	exit(EXIT_FAILURE);
 	}
 
-	int val = atoi(arg);
+	char *endptr;
+	int val = strtol(arg, &endptr, 10);
+
+	if (*endptr != '\0' && !isspace((unsigned char)*endptr))
+	{
+	fprintf(stderr, "L%u: usage: push integer\n", line_number);
+	exit(EXIT_FAILURE);
+	}
 
 	stack_t *new_node = malloc(sizeof(stack_t));
 
@@ -35,5 +42,6 @@ int push(stack_t **stack, unsigned int line_number)
 	(*stack)->prev = new_node;
 
 	*stack = new_node;
+
 	return (0);
 }

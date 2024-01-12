@@ -9,11 +9,13 @@ void freedom(stack_t *stack, char *buffer)
 {
 	stack_t *current_node;
 
-	for (; stack; stack = current_node)
+	while (stack)
 	{
 	current_node = stack->next;
 	free(stack);
+	stack = current_node;
 	}
 
 	free(buffer);
+	exit(EXIT_FAILURE);
 }
