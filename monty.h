@@ -23,4 +23,6 @@ int push(stack_t **stack, unsigned int line_number);
 int is_digit(int character);
 int print_all_elements(stack_t **stack, unsigned int line_number);
 void swap_top_two_elements(stack_t **stack_pointer, unsigned int current_line);
+void nop(stack_t **stack);
+void print_top_element(stack_t **stack_pointer, unsigned int current_line);
 #endif
