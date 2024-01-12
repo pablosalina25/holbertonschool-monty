@@ -1,27 +1,28 @@
 #include "monty.h"
-#include <unistd.h>
 
 /**
- * print_all - Implements the pall opcode.
- * @stack: Pointer to a stack node pointer
- * @line_number: Current line number
+ * print_all_elements - Implements the Monty bytecode instruction "pall" to
+ * print all elements of the stack.
+ * @stack: Pointer to the head of the stack
+ * @line_number: Line number in the Monty bytecode file
  * Return: 0 on success
  */
-int print_all(stack_t **stack, unsigned int line_number)
+int print_all_elements(stack_t **stack, unsigned int line_number)
 {
-	stack_t *element = *stack;
+	stack_t *current_element = *stack;
 
 	(void)line_number;
-	if (!element)
-		return (0);
 
-	while (element)
+	if (!current_element)
+	return (0);
+
+	for (; current_element; current_element = current_element->next)
 	{
-		if (element->n)
-			printf("%u\n", element->n);
-		else
-			printf("%u\n", 0);
-		element = element->next;
+	if (current_element->n)
+	printf("%u\n", current_element->n);
+	else
+	printf("%u\n", 0);
 	}
+
 	return (0);
 }
