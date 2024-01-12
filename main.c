@@ -44,5 +44,6 @@ int main(int argc, char **argv)
 	}
 
 	fclose(file);
+	freedom(stack, line);
 	return (0);
 }
