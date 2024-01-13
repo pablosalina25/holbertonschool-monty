@@ -42,6 +42,8 @@ int main(int argc, char **argv)
 	pop_element(&stack, line_number);
 	else if (strcmp(opcode, "pint") == 0)
 	print_top_element(&stack, line_number);
+	else if (strcmp(opcode, "swap") == 0)
+	swap_top_two_elements(&stack, line_number);
 	else
 	{
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
