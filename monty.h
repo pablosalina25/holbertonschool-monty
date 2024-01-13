@@ -27,4 +27,6 @@ void nop(stack_t **stack, unsigned int line_number);
 void print_top_element(stack_t **stack_pointer, unsigned int current_line);
 int pop_element(stack_t **stack, unsigned int line_number);
 void freedom(stack_t *stack, char *buffer);
+void execute_instruction(const char *opcode, stack_t **stack, unsigned int line_number);
+
 #endif
