@@ -40,6 +40,8 @@ int main(int argc, char **argv)
 	nop(&stack, line_number);
 	else if (strcmp(opcode, "pop") == 0)
 	pop_element(&stack, line_number);
+	else if (strcmp(opcode, "pint") == 0)
+	print_top_element(&stack, line_number);
 	else
 	{
 	fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
